@@ -1,0 +1,17 @@
+{
+  "name": "ti-power-templates",
+  "version": "1.0.0",
+  "description": "Go Go Power Templates!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "titaniumified",
+    "templates",
+    "alloy",
+    "titanium"
+  ],
+  "author": "Pier Paolo Ramon <pierpaolo.ramon@smc.it>",
+  "license": "LGPL-2.1"
+}
