@@ -1,10 +1,14 @@
 {
-  "name": "ti-power-templates",
-  "version": "1.0.0",
+  "name": "power-templates",
+  "version": "0.1.0",
   "description": "Go Go Power Templates!",
-  "main": "index.js",
+  "titaniumManifest": {
+    "guid": "90f0ab1e-a16d-50ba-3180-69dc3bb95b2c",
+    "name": "Power Templates"
+  },
+  "main": "lib/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt"
   },
   "keywords": [
     "titaniumified",
@@ -13,5 +17,19 @@
     "titanium"
   ],
   "author": "Pier Paolo Ramon <pierpaolo.ramon@smc.it>",
-  "license": "LGPL-2.1"
+  "license": "LGPL-2.1",
+  "dependencies": {
+    "angular-expressions": "^0.2.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-titanium": "^0.3.1",
+    "grunt-titaniumifier": "^1.0.1",
+    "grunt-zip": "^0.16.2",
+    "mocha": "^2.1.0",
+    "should": "^4.6.1"
+  }
 }
