@@ -2,6 +2,34 @@
 #### Mighty Morphing
 # Power Templates
 
+[![Dependencies](https://david-dm.org/smclab/power-templates/status.svg?style=flat-square)](https://david-dm.org/smclab/power-templates#info=dependencies)
+[![Dev Dependencies](https://david-dm.org/smclab/power-templates/dev-status.svg?style=flat-square)](https://david-dm.org/smclab/power-templates#info=devDependencies)
+[![Available on NPM](https://img.shields.io/npm/v/power-templates.svg?style=flat-square)](https://www.npmjs.org/package/power-templates)
+[![Available on gitTio](https://img.shields.io/badge/available_on-gitTio-00B4CC.svg?style=flat-square)](http://gitt.io/component/power-templates)
+
+Tired of ListDataItems’ idiosincratic format? Do you want to write your data binding directly in the templates? **Fear no more!** *Mighty Morphing Power Templates* are here for you!
+
+
+Installation
+------------
+
+With **gitTio** for  **Titanium SDK** you can easily install it with
+
+    $ gittio install power-templates
+
+To download the module for [manual install][mi] (e.g. through *Appcelerator Studio*) then head over the [releases page][rp] to download the latest packaged module.
+
+With **npm** for **Node.js** and **io.js** you can easily install it as a dependency for another package with
+
+    $ npm install --save power-templates
+
+[mi]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_a_Module
+[rp]: https://github.com/smclab/power-templates/releases
+
+
+Usage
+-----
+
 ### Alloy
 
 ```xml
