@@ -6,6 +6,20 @@
     "guid": "90f0ab1e-a16d-50ba-3180-69dc3bb95b2c",
     "name": "Power Templates"
   },
+  "author": {
+    "name": "Pier Paolo Ramon",
+    "email": "pierpaolo.ramon@smc.it",
+    "url": "https://github.com/yuchi"
+  },
+  "license": "LGPL-2.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smclab/power-templates.git"
+  },
+  "engines": {
+    "titaniumsdk": ">= 3.3.0",
+    "node": ">= 0.8.0"
+  },
   "main": "lib/index",
   "scripts": {
     "test": "grunt"
@@ -16,8 +30,6 @@
     "alloy",
     "titanium"
   ],
-  "author": "Pier Paolo Ramon <pierpaolo.ramon@smc.it>",
-  "license": "LGPL-2.1",
   "dependencies": {
     "angular-expressions": "^0.2.1"
   },
