@@ -2,6 +2,61 @@
 #### Mighty Morphing
 # Power Templates
 
+### Alloy
+
+```xml
+<ListView id="list" module="power-templates">
+  <Templates>
+    <!-- use [ expression here ] for property parsing! -->
+    <ItemTemplate name="simple" itemId="[ id ]">
+      <Label text="[ name ]" />
+    </ItemTemplate>
+  </Templates>
+  <ListSection id="section"/>
+</ListView>
+```
+
+```js
+$.section.items = [
+  $.list.powerTemplates.simple.parse({
+    id: 12, name: 'Example'
+  })
+];
+```
+
+### Classic
+
+```js
+var section = Ti.UI.createListSection({});
+
+var list = require('power-templates').createListView({
+  templates: {
+    "simple": {
+      properties: {
+        // use functions for property evaluation!
+        itemId: function (model) { return model.id },
+      },
+      childTemplates: [
+        {
+          type: 'Ti.UI.Label',
+          properties: {
+            // or the [expr] form!
+            text: '[ name ]'
+          }
+        }
+      ]
+    }
+  },
+  sections: [ section ]
+});
+
+section.items = [
+  list.powerTemplates.simple.parse({
+    id: 12, name: 'Example'
+  })
+];
+```
+
 Credits
 -------
 
