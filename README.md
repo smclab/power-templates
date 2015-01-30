@@ -2,6 +2,7 @@
 #### Mighty Morphing
 # Power Templates
 
+[![Build Status](https://img.shields.io/travis/smclab/power-templates.svg?style=flat-square)](https://travis-ci.org/smclab/power-templates)
 [![Dependencies](https://david-dm.org/smclab/power-templates/status.svg?style=flat-square)](https://david-dm.org/smclab/power-templates#info=dependencies)
 [![Dev Dependencies](https://david-dm.org/smclab/power-templates/dev-status.svg?style=flat-square)](https://david-dm.org/smclab/power-templates#info=devDependencies)
 [![Available on NPM](https://img.shields.io/npm/v/power-templates.svg?style=flat-square)](https://www.npmjs.org/package/power-templates)
