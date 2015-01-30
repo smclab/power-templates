@@ -18,8 +18,10 @@
 
 ```js
 $.section.items = [
+  // automatic model ➜ ListDataItem!
   $.list.powerTemplates.simple.parse({
-    id: 12, name: 'Example'
+    id: 12,
+    name: 'Example'
   })
 ];
 ```
@@ -51,11 +53,24 @@ var list = require('power-templates').createListView({
 });
 
 section.items = [
+  // automatic model ➜ ListDataItem!
   list.powerTemplates.simple.parse({
-    id: 12, name: 'Example'
+    id: 12,
+    name: 'Example'
   })
 ];
 ```
+
+
+TODO
+----
+
+**Want to contribute? Yes please!** Here’s our wishlist:
+
+- [ ] implement alternative ListSection APIs
+- [ ] implement `itemId`-based ListSection APIs (instead of indexes)
+- [ ] implement a ListView-less parsing (a-la React/Angular)
+
 
 Credits
 -------
