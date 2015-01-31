@@ -6,7 +6,7 @@
 [![Dependencies](https://david-dm.org/smclab/power-templates/status.svg?style=flat-square)](https://david-dm.org/smclab/power-templates#info=dependencies)
 [![Dev Dependencies](https://david-dm.org/smclab/power-templates/dev-status.svg?style=flat-square)](https://david-dm.org/smclab/power-templates#info=devDependencies)
 [![Available on NPM](https://img.shields.io/npm/v/power-templates.svg?style=flat-square)](https://www.npmjs.org/package/power-templates)
-[![Available on gitTio](https://img.shields.io/badge/available_on-gitTio-00B4CC.svg?style=flat-square)](http://gitt.io/component/power-templates)
+[![Available on gitTio](http://gitt.io/badge.svg)](http://gitt.io/component/power-templates)
 
 Tired of ListDataItems’ idiosincratic format? Do you want to write your data binding directly in the templates? **Fear no more!** *Mighty Morphing Power Templates* are here for you!
 
