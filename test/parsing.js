@@ -36,7 +36,7 @@ describe("PowerTemplates", function () {
   });
 
   it("should have a `template`", function () {
-    new PowerTemplate({}).should.have.property('template');
+    new PowerTemplate({}).should.have.property('templates');
   });
 
   it("should support bracket notation (and filters)", function () {
@@ -102,14 +102,14 @@ describe("PowerTemplates", function () {
       ]
     });
 
-    powerTemplate.template.should.eql({
+    powerTemplate.templates[ "x" ].should.eql({
       name: 'x',
       properties: {},
       childTemplates: [
         {
           type: 'Ti.UI.Label',
           properties: {},
-          bindId: '__bindId0'
+          bindId: 'bindId0'
         }
       ]
     });
@@ -121,10 +121,24 @@ describe("PowerTemplates", function () {
       properties: {
         itemId: 42
       },
-      __bindId0: {
+      bindId0: {
         text: 42,
         color: 'red'
       }
+    });
+  });
+
+  it("should parse parse `if` conditions", function () {
+    var powerTemplate = new PowerTemplate({
+      "name": "x",
+      "properties": {},
+      "childTemplates": [
+        {
+          "type": "Ti.UI.Label",
+          "if": function () { return false },
+          "properties": {}
+        }
+      ]
     });
   });
 
