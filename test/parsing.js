@@ -201,4 +201,37 @@ describe("PowerTemplates", function () {
     });
   });
 
+  it("should manage hard conditions", function () {
+    function o(id) {
+      var cfg = {};
+      cfg.bindId = id;
+      cfg.type = 'Ti.UI.Label';
+      cfg.if = '[' + id + ']';
+      cfg.childTemplates = [].slice.call(arguments, 1);
+      return cfg;
+    }
+
+    var powerTemplate = new PowerTemplate({
+      "name": "tmpl",
+      "properties": {},
+      "childTemplates": [
+        o('a', o('b')),
+        o('c', o('d')),
+        o('e', o('f'))
+      ]
+    });
+
+    powerTemplate.parse({ }).template.should.eql("tmpl");
+    powerTemplate.parse({ a: 1 }).template.should.eql("tmpl_a");
+    powerTemplate.parse({ c: 1 }).template.should.eql("tmpl_c");
+    powerTemplate.parse({ e: 1 }).template.should.eql("tmpl_e");
+    powerTemplate.parse({ a: 1, c: 1 }).template.should.eql("tmpl_a_c");
+    powerTemplate.parse({ c: 1, e: 1 }).template.should.eql("tmpl_c_e");
+    powerTemplate.parse({ a: 1, e: 1 }).template.should.eql("tmpl_a_e");
+    powerTemplate.parse({ a: 1, c: 1, e: 1 })
+      .template.should.eql("tmpl_a_c_e");
+
+    powerTemplate.parse({ a: 1, b: 1, c: 1, e: 1 })
+      .template.should.eql("tmpl_a_b_c_e");
+  });
 });
