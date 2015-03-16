@@ -146,6 +146,9 @@ describe("PowerTemplates", function () {
           "childTemplates": [
             {
               "type": "Ti.UI.Label",
+              "properties": {
+                "value": "[ x ]"
+              },
               "if": function (o) { return o && o.func && o.func.notation }
             }
           ]
@@ -164,7 +167,8 @@ describe("PowerTemplates", function () {
     }).should.eql({
       template: 'x',
       properties: { value: undefined },
-      bindId0: { value: undefined }
+      bindId0: { value: undefined },
+      bindId1: { value: undefined }
     });
 
     powerTemplateWithIfs.parse({
@@ -172,7 +176,8 @@ describe("PowerTemplates", function () {
     }).should.eql({
       template: 'x_bindId0',
       properties: { value: undefined },
-      bindId0: { value: undefined }
+      bindId0: { value: undefined },
+      bindId1: { value: undefined }
     });
 
     powerTemplateWithIfs.parse({
@@ -180,7 +185,8 @@ describe("PowerTemplates", function () {
     }).should.eql({
       template: 'x',
       properties: { value: undefined },
-      bindId0: { value: undefined }
+      bindId0: { value: undefined },
+      bindId1: { value: undefined }
     });
 
     powerTemplateWithIfs.parse({
@@ -189,7 +195,8 @@ describe("PowerTemplates", function () {
     }).should.eql({
       template: 'x_bindId0_bindId1',
       properties: { value: undefined },
-      bindId0: { value: undefined }
+      bindId0: { value: undefined },
+      bindId1: { value: undefined }
     });
   });
 
