@@ -105,7 +105,6 @@ describe("PowerTemplates", function () {
     powerTemplate.templates[ "x" ].should.eql({
       name: 'x',
       properties: {},
-      bindIds: [ 'properties', 'bindId0' ],
       childTemplates: [
         {
           type: 'Ti.UI.Label',
