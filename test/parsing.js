@@ -128,17 +128,68 @@ describe("PowerTemplates", function () {
     });
   });
 
-  it("should parse parse `if` conditions", function () {
-    var powerTemplate = new PowerTemplate({
+  var powerTemplateWithIfs;
+
+  it("should support `if` conditions", function () {
+    powerTemplateWithIfs = new PowerTemplate({
       "name": "x",
-      "properties": {},
+      "properties": {
+        "value": "[ x ]"
+      },
       "childTemplates": [
         {
           "type": "Ti.UI.Label",
-          "if": function () { return false },
-          "properties": {}
+          "if": "[ bracket.notation ]",
+          "properties": {
+            "value": "[ x ]"
+          },
+          "childTemplates": [
+            {
+              "type": "Ti.UI.Label",
+              "if": function (o) { return o && o.func && o.func.notation }
+            }
+          ]
         }
       ]
+    });
+
+    powerTemplateWithIfs.templates.should.have.property('x');
+    powerTemplateWithIfs.templates.should.have.property('x_bindId0');
+    powerTemplateWithIfs.templates.should.have.property('x_bindId0_bindId1');
+  });
+
+  it("should manage conditions during parse", function () {
+    powerTemplateWithIfs.parse({
+      //
+    }).should.eql({
+      template: 'x',
+      properties: { value: undefined },
+      bindId0: { value: undefined }
+    });
+
+    powerTemplateWithIfs.parse({
+      bracket: { notation: true }
+    }).should.eql({
+      template: 'x_bindId0',
+      properties: { value: undefined },
+      bindId0: { value: undefined }
+    });
+
+    powerTemplateWithIfs.parse({
+      func: { notation: true }
+    }).should.eql({
+      template: 'x',
+      properties: { value: undefined },
+      bindId0: { value: undefined }
+    });
+
+    powerTemplateWithIfs.parse({
+      bracket: { notation: true },
+      func: { notation: true }
+    }).should.eql({
+      template: 'x_bindId0_bindId1',
+      properties: { value: undefined },
+      bindId0: { value: undefined }
     });
   });
 
