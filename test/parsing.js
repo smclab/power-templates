@@ -105,6 +105,7 @@ describe("PowerTemplates", function () {
     powerTemplate.templates[ "x" ].should.eql({
       name: 'x',
       properties: {},
+      bindIds: [ 'properties', 'bindId0' ],
       childTemplates: [
         {
           type: 'Ti.UI.Label',
@@ -161,34 +162,35 @@ describe("PowerTemplates", function () {
     powerTemplateWithIfs.templates.should.have.property('x_bindId0_bindId1');
   });
 
-  it("should manage conditions during parse", function () {
+  it("should manage conditions during parse (1)", function () {
     powerTemplateWithIfs.parse({
       //
     }).should.eql({
       template: 'x',
-      properties: { value: undefined },
-      bindId0: { value: undefined },
-      bindId1: { value: undefined }
+      properties: { value: undefined }
     });
+  });
 
+  it("should manage conditions during parse (2)", function () {
     powerTemplateWithIfs.parse({
       bracket: { notation: true }
     }).should.eql({
       template: 'x_bindId0',
       properties: { value: undefined },
-      bindId0: { value: undefined },
-      bindId1: { value: undefined }
+      bindId0: { value: undefined }
     });
+  });
 
+  it("should manage conditions during parse (3)", function () {
     powerTemplateWithIfs.parse({
       func: { notation: true }
     }).should.eql({
       template: 'x',
-      properties: { value: undefined },
-      bindId0: { value: undefined },
-      bindId1: { value: undefined }
+      properties: { value: undefined }
     });
+  });
 
+  it("should manage conditions during parse (4)", function () {
     powerTemplateWithIfs.parse({
       bracket: { notation: true },
       func: { notation: true }
