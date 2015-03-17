@@ -85,6 +85,12 @@ describe("PowerTemplates", function () {
     });
   });
 
+  it("should parse even as a function [#1]", function () {
+    var parse = new PowerTemplate({ "name": "x" }).parse;
+
+    parse({ }).should.eql({ template: 'x' });
+  });
+
   it("should parse `childTemplates`", function () {
     var powerTemplate = new PowerTemplate({
       "name": "x",
