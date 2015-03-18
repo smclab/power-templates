@@ -31,22 +31,13 @@ module.exports = function (grunt) {
     },
 
     titanium: {
-      "ios": {
-        options: {
-          command: 'build',
-          logLevel: 'trace',
-          projectDir: './test/fake-titanium-app',
-          platform: 'ios'
-        }
+      options: {
+        command: 'build',
+        logLevel: 'trace',
+        projectDir: './test/fake-titanium-app',
       },
-      "droid": {
-        options: {
-          command: 'build',
-          logLevel: 'trace',
-          projectDir: './test/fake-titanium-app',
-          platform: 'android'
-        }
-      }
+      "ios": { options: { platform: 'ios' } },
+      "droid": { options: { platform: 'android' } }
     },
 
     unzip: {
