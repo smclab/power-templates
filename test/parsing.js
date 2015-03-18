@@ -28,12 +28,12 @@ describe("APIs", function () {
 
   it("should have `createListSection`", function () {
     PowerTemplate.should.have.property('createListSection');
-    PowerTemplate.createListView.should.be.a.Function;
+    PowerTemplate.createListSection.should.be.a.Function;
   });
 
   it("should have `createPowerTemplate`", function () {
     PowerTemplate.should.have.property('createPowerTemplate');
-    PowerTemplate.createListView.should.be.a.Function;
+    PowerTemplate.createPowerTemplate.should.be.a.Function;
   });
 
 });
