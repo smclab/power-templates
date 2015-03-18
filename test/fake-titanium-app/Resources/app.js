@@ -1,6 +1,7 @@
 require('ti-mocha');
 
 require('spec/parsing');
+require('spec/render');
 
 mocha.run(function (failures) {
   if (failures > 0) {
