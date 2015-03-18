@@ -44,8 +44,7 @@ module.exports = function (grunt) {
           command: 'build',
           logLevel: 'trace',
           projectDir: './test/fake-titanium-app',
-          platform: 'android',
-          deviceId: grunt.option('device-id')
+          platform: 'android'
         }
       }
     },
