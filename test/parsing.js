@@ -2,13 +2,22 @@
 
 var should = require('should');
 
-var PowerTemplate = require('../lib');
+var PowerTemplate;
 
-global.Ti = {};
-global.Ti.UI = {};
-global.Ti.UI.createListView = function (cfg) {
-  return cfg;
-};
+try {
+  PowerTemplate = require('../lib');
+}
+catch (e) {
+  PowerTemplate = require('power-templates');
+}
+
+if (typeof Ti === 'undefined') {
+  global.Ti = {};
+  global.Ti.UI = {};
+  global.Ti.UI.createListView = function (cfg) {
+    return cfg;
+  };
+}
 
 describe("APIs", function () {
 

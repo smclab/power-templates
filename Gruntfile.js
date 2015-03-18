@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
 
+  var path = require('path');
+
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
@@ -19,8 +21,9 @@ module.exports = function (grunt) {
     },
 
     clean: {
+      "app": [ 'test/fake-titanium-app/build' ],
       "modules": [ 'test/fake-titanium-app/modules' ],
-      "app": [ 'test/fake-titanium-app/build' ]
+      "spec": [ 'test/fake-titanium-app/Resources/spec' ]
     },
 
     titaniumifier: {
@@ -63,11 +66,20 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-titaniumifier');
   grunt.loadNpmTasks('grunt-zip');
 
+  grunt.registerTask('copy:specs', 'Copies specs into the titanium app', function () {
+    var specsDir = 'test/fake-titanium-app/Resources/spec';
+
+    grunt.file.mkdir(specsDir);
+    grunt.file.glob.sync('test/*.js').forEach(function (file) {
+      grunt.file.copy(file, specsDir + '/' + path.basename(file));
+    });
+  });
+
   grunt.registerTask('test:node', [ 'mochaTest' ]);
 
   grunt.registerTask('build:titanium', [ 'titaniumifier:module' ]);
-  grunt.registerTask('test:ios', [ 'unzip:module', 'titanium:ios' ]);
-  grunt.registerTask('test:droid', [ 'unzip:module', 'titanium:droid' ]);
+  grunt.registerTask('test:ios', [ 'unzip:module', 'copy:specs', 'titanium:ios' ]);
+  grunt.registerTask('test:droid', [ 'unzip:module', 'copy:specs', 'titanium:droid' ]);
 
   grunt.registerTask('ios', [ 'jshint:all', 'clean', 'build:titanium', 'test:ios' ]);
   grunt.registerTask('droid', [ 'jshint:all', 'clean', 'build:titanium', 'test:droid' ]);
