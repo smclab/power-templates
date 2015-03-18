@@ -11,11 +11,13 @@ catch (e) {
   PowerTemplate = require('power-templates');
 }
 
-global.Ti = {};
-global.Ti.UI = {};
-global.Ti.UI.createListView = function (cfg) {
-  return cfg;
-};
+if (typeof Ti === 'undefined') {
+  global.Ti = {};
+  global.Ti.UI = {};
+  global.Ti.UI.createListView = function (cfg) {
+    return cfg;
+  };
+}
 
 xdescribe('Renderable template', function () {
 
