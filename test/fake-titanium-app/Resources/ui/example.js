@@ -22,6 +22,11 @@ var list = require('power-templates').createListView({
             right: '[ valid ? 40 : 10 ]',
             bottom: 10,
             left: 10
+          },
+          events: {
+            "click": function (event) {
+              alert('You clicked item №' + event.itemId);
+            }
           }
         },
         {
