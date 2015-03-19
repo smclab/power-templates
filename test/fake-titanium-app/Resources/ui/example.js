@@ -1,4 +1,6 @@
-var window = Ti.UI.createWindow({});
+var window = Ti.UI.createWindow({
+  theme: "Theme.AppCompat.Light"
+});
 
 var section = Ti.UI.createListSection({});
 
@@ -16,6 +18,7 @@ var list = require('power-templates').createListView({
           properties: {
             text: '[ name ]',
             top: 10,
+            backgroundColor: '#109F',
             right: '[ valid ? 40 : 10 ]',
             bottom: 10,
             left: 10
