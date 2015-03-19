@@ -35,6 +35,8 @@ module.exports = function (grunt) {
         command: 'build',
         logLevel: 'trace',
         projectDir: './test/fake-titanium-app',
+        failure: /TESTS WITH FAILURES/i,
+        success: /TESTS ALL OK/i
       },
       "ios": { options: { platform: 'ios' } },
       "droid": { options: { platform: 'android' } }
