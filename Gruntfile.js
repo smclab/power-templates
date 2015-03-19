@@ -1,6 +1,9 @@
 module.exports = function (grunt) {
 
   var path = require('path');
+  var logLevel = grunt.cli.options.debug ? 'trace' : 'info';
+
+  logLevel = grunt.option('log-level') || logLevel;
 
   grunt.initConfig({
 
@@ -33,7 +36,7 @@ module.exports = function (grunt) {
     titanium: {
       options: {
         command: 'build',
-        logLevel: 'trace',
+        logLevel: logLevel,
         projectDir: './test/fake-titanium-app',
         failure: /TESTS WITH FAILURES/i,
         success: /TESTS ALL OK/i
