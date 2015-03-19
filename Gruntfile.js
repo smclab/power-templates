@@ -57,12 +57,18 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-zip');
 
   grunt.registerTask('copy:specs', 'Copies specs into the titanium app', function () {
-    var specsDir = 'test/fake-titanium-app/Resources/spec';
+    var resourcesDir = 'test/fake-titanium-app/Resources';
+    var specsDir = resourcesDir + '/spec';
 
     grunt.file.mkdir(specsDir);
     grunt.file.glob.sync('test/*.js').forEach(function (file) {
       grunt.file.copy(file, specsDir + '/' + path.basename(file));
     });
+
+    grunt.file.copy(
+      require.resolve('ti-mocha/ti-mocha'), resourcesDir + '/ti-mocha.js');
+    grunt.file.copy(
+      require.resolve('should/should'), resourcesDir + '/should.js');
   });
 
   grunt.registerTask('test:node', [ 'mochaTest' ]);

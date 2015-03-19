@@ -44,6 +44,7 @@
     "grunt-titaniumifier": "^1.0.1",
     "grunt-zip": "^0.16.2",
     "mocha": "^2.1.0",
-    "should": "^4.6.1"
+    "should": "^4.6.1",
+    "ti-mocha": "^0.2.0"
   }
 }
