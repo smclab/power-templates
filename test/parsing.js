@@ -249,4 +249,26 @@ describe("PowerTemplates", function () {
     powerTemplate.parse({ a: 1, b: 1, c: 1, e: 1 })
       .template.should.eql("tmpl_a_b_c_e");
   });
+
+  it("should support `if` conditions in `createListView`", function () {
+    var listView = PowerTemplate.createListView({
+      templates: {
+        "x": {
+          childTemplates: [
+            {
+              type: 'Ti.UI.Label',
+              bindId: 'y',
+              if: "[ x ]",
+              properties: {}
+            }
+          ]
+        }
+      }
+    });
+
+    listView.powerTemplates.should.have.property('x');
+    listView.powerTemplates.x.should.have.property('templates');
+    listView.powerTemplates.x.templates.should.have.property('x');
+    listView.powerTemplates.x.templates.should.have.property('x_y');
+  });
 });
